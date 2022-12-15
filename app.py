@@ -1,6 +1,9 @@
 import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
+import tmdbsimple as tmdb
+
+tmdb.API_KEY = ''
 
 
 def get_db_connection():
@@ -19,6 +22,20 @@ def get_movie(movie_id):
     return movie
 
 
+def get_movie_poster_and_overview(movie_id):
+    movie = get_movie(movie_id)
+    title = movie['title']
+    search = tmdb.Search()
+    response = search.movie(query=title)
+
+    poster_path = response['results'][0]['poster_path']
+    overview = response['results'][0]['overview']
+
+    path = "http://image.tmdb.org/t/p/w200" + poster_path
+
+    return [overview, path]
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'abc123'
 
@@ -28,13 +45,16 @@ def index():
     conn = get_db_connection()
     movies = conn.execute('SELECT * FROM movies').fetchall()
     conn.close()
+
+    app.jinja_env.globals.update(movie_data=get_movie_poster_and_overview)
     return render_template('index.html', movies=movies)
 
 
 @app.route('/<int:movie_id>')
 def movie(movie_id):
     movie = get_movie(movie_id)
-    return render_template('movie.html', movie=movie)
+    overview = get_movie_poster_and_overview(movie['id'])[0]
+    return render_template('movie.html', movie=movie, overview=overview)
 
 
 @app.route('/create', methods=['POST', 'GET'])
