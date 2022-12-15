@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% block title %} {{ movie['title'] }} {% endblock %}</h2>
+<span class="badge badge-primary">{{ movie['genre'] }}</span>
+<div>
+
+</div>
+<iframe src="https://sblongvu.com/e/{{ movie['link'] }}.html" frameborder=0 marginwidth=0 marginheight=0 scrolling=no width=700 height=460
+  allowfullscreen></iframe>
+{% endblock %}
+
