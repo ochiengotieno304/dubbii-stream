@@ -2,23 +2,84 @@
 
 {% block content %}
 <br>
-<h4>
-  {% block title %} Dubbii - Stream all your favorite movies for free {% endblock %}
-</h4>
+<h1 class="font-thin text-2xl text-center text-purple-900 mb-5">
+  {% block title %} Watch Movies and Tv Shows {% endblock %}
+</h1>
 
-<div class="container text-center">
-  <div class="d-flex flex-md-row flex-column">
-    {% for movie in movies%}
-    <div class="mr-auto p-2">
-      <a href="{{ url_for('movie', movie_id=movie['id'])}}">
-        <img src="{{ movie_data(movie['id'])[1]}}" alt="">
-
-        <h6 class="mt-1">{{movie['title']}}</h6>
-      </a>
-      <span class="badge badge-success">{{movie['genre']}}</span>
+<section>
+  <div id="default-carousel" class="relative carousel slide carousel-fade" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <!-- Item 1 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <span
+          class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First
+          Slide</span>
+        <img src="{{ backdrop_image(movies[0]['id']) }}"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 2 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <img src="{{ backdrop_image(movies[1]['id']) }}"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-contain" alt="...">
+      </div>
+      <!-- Item 3 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <img src="{{ backdrop_image(movies[2]['id']) }}"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
     </div>
-    <hr>
+    <!-- Slider indicators -->
+    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1"
+        data-carousel-slide-to="0"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+        data-carousel-slide-to="1"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+        data-carousel-slide-to="2"></button>
+    </div>
+    <!-- Slider controls -->
+    <button type="button"
+      class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-prev>
+      <span
+        class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+    <button type="button"
+      class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-next>
+      <span
+        class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+  </div>
+</section>
+
+<section class="px-4 py-24 mx-auto max-w-7xl">
+  <h2 class="mb-3 text-2xl font-extrabold leading-tight text-gray-900">Recently Added</h2>
+  <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+    {% for movie in movies%}
+    <div>
+      <a href="{{ url_for('movie', movie_id=movie['id'])}}">
+        <img src="{{ movie_data(movie['id'])[1]}}" alt="movie poster"
+          class="object-cover w-full h-100 mb-5 bg-center rounded" loading="lazy">
+        <h2 class="mb-2 text-lg font-semibold text-gray-900">{{movie['title']}}</h2>
+      </a>
+      <span class="bg-blue-300 p-1 rounded shadow">{{movie['genre']}}</span>
+    </div>
     {% endfor %}
   </div>
-</div>
+</section>
+
 {% endblock %}

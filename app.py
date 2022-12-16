@@ -2,8 +2,11 @@ import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 import tmdbsimple as tmdb
+import os
+import asyncio
 
-tmdb.API_KEY = ''
+
+tmdb.API_KEY = os.environ['api_key']
 
 
 def get_db_connection():
@@ -27,13 +30,22 @@ def get_movie_poster_and_overview(movie_id):
     title = movie['title']
     search = tmdb.Search()
     response = search.movie(query=title)
-
     poster_path = response['results'][0]['poster_path']
     overview = response['results'][0]['overview']
-
-    path = "http://image.tmdb.org/t/p/w200" + poster_path
+    path = "http://image.tmdb.org/t/p/w500" + poster_path
 
     return [overview, path]
+
+
+def get_movie_backdrop(movie_id):
+    movie = get_movie(movie_id)
+    title = movie['title']
+    search = tmdb.Search()
+    response = search.movie(query=title)
+    backdrop_path = response['results'][0]['backdrop_path']
+    backdrop_path = "http://image.tmdb.org/t/p/w500" + backdrop_path
+
+    return backdrop_path
 
 
 app = Flask(__name__)
@@ -47,6 +59,7 @@ def index():
     conn.close()
 
     app.jinja_env.globals.update(movie_data=get_movie_poster_and_overview)
+    app.jinja_env.globals.update(backdrop_image=get_movie_backdrop)
     return render_template('index.html', movies=movies)
 
 

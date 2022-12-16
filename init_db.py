@@ -29,17 +29,5 @@ cur.execute("INSERT INTO movies (title, link, genre) VALUES (?, ?, ?)",
             )
 
 
-cur.execute("INSERT INTO movies (title, link, genre) VALUES (?, ?, ?)",
-            ('Top Gun Maverick', '3aaqk5emh1s3', 'action')
-            )
-
-cur.execute("INSERT INTO movies (title, link, genre) VALUES (?, ?, ?)",
-            ('Top Gun Maverick', '3aaqk5emh1s3', 'action')
-            )
-
-cur.execute("INSERT INTO movies (title, link, genre) VALUES (?, ?, ?)",
-            ('Top Gun Maverick', '3aaqk5emh1s3', 'action')
-            )
-            
 connection.commit()
 connection.close()
