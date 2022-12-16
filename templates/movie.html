@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<section class="mb-12 mt-12">
-  <div class="aspect-w-16 aspect-h-9">
-    <iframe src="https://sblongvu.com/e/{{ movie['link'] }}.html" title="{{movie['title']}}" frameborder="0"
-      allowfullscreen></iframe>
-  </div>
-</section>
-
-<section class="mb-12">
-  <div class="flex w-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-    <div class="w-1/4 bg-cover" style="background-image: url('{{ poster }}')">
+<div class="py-24">
+  <section class="">
+    <div class="aspect-w-16 aspect-h-9">
+      <iframe src="https://sblongvu.com/e/{{ movie['link'] }}.html" title="{{movie['title']}}" frameborder="0"
+        allowfullscreen></iframe>
     </div>
+  </section>
 
-    <div class="w-2/3 p-4 md:p-4">
-      <h1 class="text-2xl font-bold text-gray-800 dark:text-white">{% block title %} {{ movie['title'] }} {% endblock %}
-      </h1>
+  <section class="py-12">
+    <div class="flex w-full overflow-hidden bg-white rounded-lg shadow-sm dark:bg-gray-800 h-64">
+      <div class="w-1/4 bg-cover" style="background-image: url('{{ poster }}')">
+      </div>
 
-      <p class="mt-5 text-sm text-gray-600 dark:text-gray-400">{{ overview }}</p>
+      <div class="w-2/3 p-4 md:p-4">
+        <h1 class="text-2xl font-bold text-gray-800 dark:text-white">{% block title %} {{ movie['title'] }} {% endblock
+          %}
+        </h1>
 
-      <span
-        class="bg-purple-100 text-purple-800 text-xs font-semibold mt-5 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">{{movie['genre']}}</span>
+        <p class="mt-5 text-lg text-gray-600 dark:text-gray-400 mb-5">{{ overview }}</p>
+
+        <span
+          class="bg-purple-100 text-purple-800 text-xs font-semibold mt-5 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">{{movie['genre']}}</span>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
+</div>
 {% endblock %}
