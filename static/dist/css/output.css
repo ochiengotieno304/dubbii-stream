@@ -886,6 +886,10 @@ input[type="range"]::-ms-fill-lower {
   position: static;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -936,12 +940,20 @@ input[type="range"]::-ms-fill-lower {
   right: 0px;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
 .-z-10 {
   z-index: -10;
 }
 
 .z-30 {
   z-index: 30;
+}
+
+.z-20 {
+  z-index: 20;
 }
 
 .mx-auto {
@@ -984,6 +996,14 @@ input[type="range"]::-ms-fill-lower {
 
 .mr-4 {
   margin-right: 1rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .block {
@@ -1058,6 +1078,14 @@ input[type="range"]::-ms-fill-lower {
   width: 2rem;
 }
 
+.w-1 {
+  width: 0.25rem;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
 .max-w-none {
   max-width: none;
 }
@@ -1123,8 +1151,16 @@ input[type="range"]::-ms-fill-lower {
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.self-center {
+  align-self: center;
+}
+
 .overflow-hidden {
   overflow: hidden;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded {
@@ -1141,6 +1177,10 @@ input[type="range"]::-ms-fill-lower {
 
 .border {
   border-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
 }
 
 .border-gray-200 {
@@ -1181,6 +1221,11 @@ input[type="range"]::-ms-fill-lower {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-blue-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(26 86 219 / var(--tw-bg-opacity));
+}
+
 .bg-center {
   background-position: center;
 }
@@ -1209,6 +1254,10 @@ input[type="range"]::-ms-fill-lower {
 
 .p-1 {
   padding: 0.25rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .px-2 {
@@ -1248,6 +1297,10 @@ input[type="range"]::-ms-fill-lower {
   padding-right: 1rem;
 }
 
+.pl-4 {
+  padding-left: 1rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1264,6 +1317,11 @@ input[type="range"]::-ms-fill-lower {
 
 .text-lg {
   font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
@@ -1600,6 +1658,10 @@ input[type="range"]::-ms-fill-lower {
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
+  .md\:bg-transparent {
+    background-color: transparent;
+  }
+
   .md\:p-0 {
     padding: 0px;
   }
@@ -1615,6 +1677,11 @@ input[type="range"]::-ms-fill-lower {
 
   .md\:font-medium {
     font-weight: 500;
+  }
+
+  .md\:text-blue-700 {
+    --tw-text-opacity: 1;
+    color: rgb(26 86 219 / var(--tw-text-opacity));
   }
 
   .md\:hover\:bg-transparent:hover {

@@ -48,18 +48,34 @@ def get_movie_backdrop(movie_id):
     return backdrop_path
 
 
+def movie_search(search):
+    conn = get_db_connection()
+    cusor = conn.cursor()
+    cusor.execute("SELECT * FROM `movies` WHERE `title` LIKE ?",
+                  ("%"+search+"%",))
+
+    result = cusor.fetchall()
+    conn.close
+    return result
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'abc123'
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    conn = get_db_connection()
-    movies = conn.execute('SELECT * FROM movies').fetchall()
-    conn.close()
+    if request.method == 'POST':
+        data = dict(request.form)
+        movies = movie_search(data["search"])
+    else:
+        conn = get_db_connection()
+        movies = conn.execute('SELECT * FROM movies').fetchall()
+        conn.close()
 
     app.jinja_env.globals.update(movie_data=get_movie_poster_and_overview)
-    app.jinja_env.globals.update(backdrop_image=get_movie_backdrop)
+    # app.jinja_env.globals.update(backdrop_image=get_movie_backdrop)
+
     return render_template('index.html', movies=movies)
 
 
