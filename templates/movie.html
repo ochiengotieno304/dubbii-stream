@@ -9,12 +9,21 @@
   </div>
 </section>
 
-<section>
-  <h2>{% block title %} {{ movie['title'] }} {% endblock %}</h2>
-  <span class="badge badge-primary">{{ movie['genre'] }}</span>
-</section>
+<section class="mb-12">
+  <div class="flex w-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+    <div class="w-1/4 bg-cover" style="background-image: url('{{ poster }}')">
+    </div>
 
-<p class="mb-12">{{ overview }}</p>
-<img src="{{path}}" alt="">
+    <div class="w-2/3 p-4 md:p-4">
+      <h1 class="text-2xl font-bold text-gray-800 dark:text-white">{% block title %} {{ movie['title'] }} {% endblock %}
+      </h1>
+
+      <p class="mt-5 text-sm text-gray-600 dark:text-gray-400">{{ overview }}</p>
+
+      <span
+        class="bg-purple-100 text-purple-800 text-xs font-semibold mt-5 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">{{movie['genre']}}</span>
+    </div>
+  </div>
+</section>
 
 {% endblock %}

@@ -83,7 +83,8 @@ def index():
 def movie(movie_id):
     movie = get_movie(movie_id)
     overview = get_movie_poster_and_overview(movie['id'])[0]
-    return render_template('movie.html', movie=movie, overview=overview)
+    poster = get_movie_poster_and_overview(movie['id'])[1]
+    return render_template('movie.html', movie=movie, overview=overview, poster=poster)
 
 
 @app.route('/create', methods=['POST', 'GET'])
