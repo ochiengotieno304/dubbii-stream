@@ -104,3 +104,24 @@ def create():
             conn.close()
             return redirect(url_for('index'))
     return render_template('create.html')
+
+
+@app.route('/<int:id>/edit', methods=['POST', 'GET'])
+def edit(id):
+    movie = get_movie(id)
+
+    if request.method == 'POST':
+        title = request.form['title']
+        link = request.form['link']
+        genre = request.form['genre']
+
+        if not title:
+            flash('Title is required')
+        else:
+            conn = get_db_connection()
+            conn.execute('UPDATE MOVIES SET title = ?, link = ?, genre = ? WHERE id = ?', (title, link, genre, id))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('index'))
+
+    return render_template('edit.html', movie=movie)

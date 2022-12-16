@@ -18,7 +18,7 @@
       <div
         class="shadow-md bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
-          <div class="text-gray-900 font-bold text-xl mb-2">{{ movie['title'] }}</div>
+          <div class="text-gray-900 font-bold text-xl mb-2">{% block title %}{{ movie['title'] }} {% endblock %}</div>
           <p class="text-gray-700 text-base">{{ overview }}</p>
         </div>
         <div class="flex items-center">

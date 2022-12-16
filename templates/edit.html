@@ -7,20 +7,20 @@
 <form method="post" class="w-3/4 mx-auto">
   <div class="mb-6">
     <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Movie Title</label>
-    <input type="text" id="title" name="title" value="{{ request.form['title'] }}"
+    <input type="text" id="title" name="title" value="{{ request.form['title'] or movie['title'] }}"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
       placeholder="Black Panther" required>
   </div>
   <div class="mb-6">
     <label for="link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Movie Link</label>
-    <input type="text" id="link" name="link" value="{{ request.form['link'] }}"
+    <input type="text" id="link" name="link" value="{{ request.form['link'] or movie['link'] }}"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
       required>
   </div>
 
   <div class="mb-6">
     <label for="genre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genre</label>
-    <input type="text" id="genre" name="genre" value="{{ request.form['genre'] }}"
+    <input type="text" id="genre" name="genre" value="{{ request.form['genre'] or movie['genre'] }}"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
       required>
   </div>
