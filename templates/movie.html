@@ -3,14 +3,16 @@
 {% block content %}
 <h2>{% block title %} {{ movie['title'] }} {% endblock %}</h2>
 <span class="badge badge-primary">{{ movie['genre'] }}</span>
-<div>
 
-</div>
-<iframe src="https://sblongvu.com/e/{{ movie['link'] }}.html" frameborder=0 marginwidth=0 marginheight=0 scrolling=no
-  width=700 height=460 allowfullscreen></iframe>
+<section class="mx-12 my-12">
+  <div class="aspect-w-16 aspect-h-9">
+    <iframe src="https://sblongvu.com/e/{{ movie['link'] }}.html" title="{{movie['title']}}" frameborder="0"
+      allowfullscreen></iframe>
+  </div>
+</section>
 
 
-<p>{{ overview }}</p>
+<p class="mb-12">{{ overview }}</p>
 <img src="{{path}}" alt="">
 
 {% endblock %}
