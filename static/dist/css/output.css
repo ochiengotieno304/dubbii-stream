@@ -1088,6 +1088,10 @@ input[type="range"]::-ms-fill-lower {
   margin-bottom: 3rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .block {
   display: block;
 }
