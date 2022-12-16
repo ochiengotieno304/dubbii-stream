@@ -8,7 +8,7 @@
 
 <form method="post">
   <input type="text" id="search-navbar" name="search"
-    class="block mx-auto p-3 pl-4 text-sm w-1/2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    class="block mx-auto p-3 pl-4 text-sm w-1/2 text-gray-900 border border-gray-100 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
     placeholder="Movie Search...">
 </form>
 
@@ -22,7 +22,9 @@
           class="object-cover w-full h-100 mb-5 bg-center rounded" loading="lazy">
         <h2 class="mb-2 text-lg font-semibold text-gray-900">{{movie['title']}}</h2>
       </a>
-      <span class="bg-blue-300 p-1 rounded shadow">{{movie['genre']}}</span>
+      <span
+        class="bg-purple-100 text-purple-800 text-xs italic font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">{{movie['genre']}}</span>
+
     </div>
     {% endfor %}
   </div>
