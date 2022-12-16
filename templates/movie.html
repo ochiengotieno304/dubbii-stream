@@ -10,21 +10,26 @@
   </section>
 
   <section class="py-12">
-    <div class="flex w-full overflow-hidden bg-white rounded-lg shadow-sm dark:bg-gray-800">
-      <div class="w-1/4 bg-cover" style="background-image: url('{{ poster }}')">
+    <div class="max-w-sm w-full lg:max-w-full lg:flex ">
+      <div
+        class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+        style="background-image: url('{{ poster }}')" title="Woman holding a mug">
       </div>
-
-      <div class="w-2/3 p-4 md:p-4">
-        <h1 class="text-2xl font-bold text-gray-800 dark:text-white">{% block title %} {{ movie['title'] }} {% endblock
-          %}
-        </h1>
-
-        <p class="mt-5 text-sm text-gray-600 dark:text-gray-400 mb-5">{{ overview }}</p>
-
-        <span
-          class="bg-purple-100 text-purple-800 text-xs font-semibold mt-5 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">{{movie['genre']}}</span>
+      <div
+        class="shadow-md bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <div class="mb-8">
+          <div class="text-gray-900 font-bold text-xl mb-2">{{ movie['title'] }}</div>
+          <p class="text-gray-700 text-base">{{ overview }}</p>
+        </div>
+        <div class="flex items-center">
+          <div class="text-sm">
+            <span
+              class="bg-purple-100 text-purple-800 text-xs font-semibold mt-5 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">{{movie['genre']}}</span>
+          </div>
+        </div>
       </div>
     </div>
+
   </section>
 </div>
 {% endblock %}
