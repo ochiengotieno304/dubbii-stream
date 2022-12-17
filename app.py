@@ -79,7 +79,7 @@ def index():
     return render_template('index.html', movies=movies)
 
 
-@app.route('/<int:movie_id>')
+@app.route('/movies/<int:movie_id>')
 def movie(movie_id):
     movie = get_movie(movie_id)
     overview = get_movie_poster_and_overview(movie['id'])[0]
@@ -106,7 +106,7 @@ def create():
     return render_template('create.html')
 
 
-@app.route('/<int:id>/edit', methods=['POST', 'GET'])
+@app.route('/movies/<int:id>/edit', methods=['POST', 'GET'])
 def edit(id):
     movie = get_movie(id)
 
@@ -119,9 +119,21 @@ def edit(id):
             flash('Title is required')
         else:
             conn = get_db_connection()
-            conn.execute('UPDATE MOVIES SET title = ?, link = ?, genre = ? WHERE id = ?', (title, link, genre, id))
+            conn.execute(
+                'UPDATE MOVIES SET title = ?, link = ?, genre = ? WHERE id = ?', (title, link, genre, id))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
 
     return render_template('edit.html', movie=movie)
+
+
+@app.route('/movies/<int:id>/delete', methods=['POST'])
+def delete(id):
+    movie = get_movie(id)
+    conn = get_db_connection()
+    conn.execute('DELETE FROM movies WHERE id = ?', (id,))
+    conn.commit()
+    conn.close()
+    flash('success', f"Movie deleted successfully {movie['title']}")
+    return redirect(url_for('index'))
