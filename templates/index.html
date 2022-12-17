@@ -16,19 +16,18 @@
   <!-- TODO: add movie carousel -->
 </section>
 
-<section class="px-4 py-24 mx-auto max-w-7xl">
-  <h2 class="mb-3 text-xl font-thin text-center leading-tight text-purple-900">Recently Added</h2>
-  <div class="grid grid-cols-3 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+<section class="px-4 py-20 mx-auto max-w-7xl">
+  <h2 class="mb-6 text-xl font-thin text-center leading-tight text-purple-900">Recently Added</h2>
+  <div class="grid grid-cols-3 gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
     {% for movie in movies%}
-    <div>
+    <div class="relative hover:scale-110 transition duration-300 ease-in-out">
       <a href="{{ url_for('movie', movie_id=movie['id'])}}">
         <img src="{{ movie_data(movie['id'])[1]}}" alt="movie poster"
-          class="object-cover w-full h-100 mb-5 bg-center rounded" loading="lazy">
-        <h2 class="mb-2 font-semibold text-blue-900">{{movie['title']}}</h2>
+          class="object-cover w-full h-100 mb-5 bg-center rounded-lg " loading="lazy">
+        <p class="text-white  absolute bottom-6 text-xs capitalize left-0 px-2">{{movie['title']}}</p>
       </a>
       <span
-        class="bg-purple-100 text-purple-800 text-xs italic font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">{{movie['genre']}}</span>
-
+        class="bg-purple-900 text-white text-xs absolute top-3 shadow right-0 font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">{{movie['genre']}}</span>
     </div>
     {% endfor %}
   </div>
