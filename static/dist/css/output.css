@@ -1350,6 +1350,11 @@ input[type="range"]::-ms-fill-lower {
   color: rgb(85 33 181 / var(--tw-text-opacity));
 }
 
+.text-purple-900 {
+  --tw-text-opacity: 1;
+  color: rgb(74 29 150 / var(--tw-text-opacity));
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
