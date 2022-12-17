@@ -18,13 +18,13 @@
 
 <section class="px-4 py-24 mx-auto max-w-7xl">
   <h2 class="mb-3 text-xl font-thin text-center leading-tight text-purple-900">Recently Added</h2>
-  <div class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+  <div class="grid grid-cols-3 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
     {% for movie in movies%}
     <div>
       <a href="{{ url_for('movie', movie_id=movie['id'])}}">
         <img src="{{ movie_data(movie['id'])[1]}}" alt="movie poster"
           class="object-cover w-full h-100 mb-5 bg-center rounded" loading="lazy">
-        <h2 class="mb-2 font-medium text-gray-900">{{movie['title']}}</h2>
+        <h2 class="mb-2 font-semibold text-blue-900">{{movie['title']}}</h2>
       </a>
       <span
         class="bg-purple-100 text-purple-800 text-xs italic font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">{{movie['genre']}}</span>
