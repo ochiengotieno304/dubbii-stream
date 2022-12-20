@@ -20,14 +20,16 @@
   <h2 class="mb-6 text-xl font-thin text-center leading-tight text-purple-900">Recently Added</h2>
   <div class="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
     {% for movie in movies%}
-    <div class="relative hover:scale-110 transition duration-300 ease-in-out">
-      <a href="{{ url_for('movie', movie_id=movie['id'])}}">
-        <img src="{{ movie_data(movie['id'])[1]}}" alt="movie poster"
-          class="object-cover w-full h-100 mb-2 bg-center rounded-lg " loading="lazy">
-        <p class="text-gray-800 text-s md:text-xs capitalize left-0 px-2">{{movie['title']}}</p>
-      </a>
-      <span
-        class="bg-purple-900 text-white text-s md:text-xs absolute top-1 shadow right-0 font-semibold mr-1 px-1.5 py-0.5 rounded uppercase">{{movie['quality']}}</span>
+    <div class="relative">
+      <div class="hover:scale-110 transition duration-300 ease-in-out ">
+        <a href="{{ url_for('movie', movie_id=movie['id'])}}">
+          <img src="{{ movie_data(movie['id'])[1]}}" alt="movie poster"
+            class="object-cover w-full h-100 bg-center rounded-lg mb-3" loading="lazy">
+        </a>
+        <span
+          class="bg-purple-900 text-white text-s md:text-xs absolute top-1 shadow right-0 font-semibold mr-1 px-1.5 py-0.5 rounded uppercase">{{movie['quality']}}</span>
+      </div>
+      <p class="text-gray-800 text-s md:text-xs capitalize left-0 px-2">{{movie['title']}}</p>
     </div>
     {% endfor %}
   </div>

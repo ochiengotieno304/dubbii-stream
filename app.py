@@ -70,7 +70,8 @@ def index():
         movies = movie_search(data["search"])
     else:
         conn = get_db_connection()
-        movies = conn.execute('SELECT * FROM movies').fetchall()
+        movies = conn.execute(
+            'SELECT * FROM movies ORDER BY created DESC').fetchall()
         conn.close()
 
     app.jinja_env.globals.update(movie_data=get_movie_poster_and_overview)
@@ -93,13 +94,14 @@ def create():
         title = request.form['title']
         link = request.form['link']
         genre = request.form['genre']
+        quality = request.form['quality']
 
         if not title:
             flash('Title is required')
         else:
             conn = get_db_connection()
             conn.execute(
-                'INSERT INTO movies (title, link, genre) VALUES (?, ?, ?)', (title, link, genre))
+                'INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)', (title, link, quality, genre))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
@@ -114,13 +116,14 @@ def edit(id):
         title = request.form['title']
         link = request.form['link']
         genre = request.form['genre']
+        quality = request.form['quality']
 
         if not title:
             flash('Title is required')
         else:
             conn = get_db_connection()
             conn.execute(
-                'UPDATE MOVIES SET title = ?, link = ?, genre = ? WHERE id = ?', (title, link, genre, id))
+                'UPDATE MOVIES SET title = ?, link = ?, genre = ?, quality = ?,  WHERE id = ?', (title, link, genre, quality, id))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
