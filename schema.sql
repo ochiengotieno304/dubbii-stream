@@ -5,4 +5,5 @@ CREATE TABLE movies (
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     title TEXT NOT NULL,
     link TEXT NOT NULL,
+    quality TEXT NOT NULL,
     genre TEXT NOT NULL);
