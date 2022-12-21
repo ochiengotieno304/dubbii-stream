@@ -43,4 +43,32 @@
   </div>
 </section>
 
+<section class="px-4 py-10 mx-auto max-w-7xl">
+  <h2 class="mb-6 text-xl font-thin text-center leading-tight text-purple-900">Top Rated</h2>
+  <div class="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+    {% for movie in movies%}
+    {% if movie_rating(movie['id']) > 7.5 %}
+    <div class="relative">
+      <div class="hover:scale-110 transition duration-300 ease-in-out ">
+        <a href="{{ url_for('movie', movie_id=movie['id'])}}">
+          <img src="{{ movie_data(movie['id'])[1]}}" alt="movie poster"
+            class="object-cover w-full h-100 bg-center rounded-lg mb-3" loading="lazy">
+        </a>
+        <span
+          class="bg-purple-900 text-gray-200 text-xs md:text-xs absolute top-1 shadow right-0 font-semibold mr-1 px-0.5 py-0.5 rounded uppercase">{{movie['quality']}}</span>
+      </div>
+      <p class="text-gray-800 text-xs capitalize left-0 px-2">{{movie['title']}}</p>
+      <div class="mt-2 flex">
+        <p class="text-gray-700 text-xs capitalize left-0 px-2"><span
+            class="bg-yellow-300 text-black text-xs md:text-xs shadow font-semibold px-0.5 py-0.5 rounded uppercase">
+            IMDB</span> {{movie_rating(movie['id'])}}</p>
+        <p class="text-gray-700 text-xs capitalize left-0 px-2">{{movie_year(movie['id'])}}</p>
+
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
 {% endblock %}

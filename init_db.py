@@ -32,6 +32,63 @@ cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?
             ('High Heat', 'hsu5viqt2mt2', 'hd', 'action')
             )
 
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('Everything Everywhere All At Once', 'nde5tntm3ao7', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('Guillermo del Toros Pinocchio', 'g2uq7htwpngt', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('Luck', '6b40paum70kc', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('Mindcage', 'l2awsaesp5px', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('Nanny', '6cenp4zrms4d', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('Nope', 'tmdr9b89mw0s', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('Prey for the Devil', '5rnceihtjrnz', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('Resurrection', 'hwpdiawyqw0f', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('The Banshees of Inisherin', 'n26uv5b51q4a', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('The Batman', '7qf5plkohtri', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('The Fabelmans', '4j2l41lelrif', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('The Northman', 'igj1pw6by3z4', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('The Unbearable Weight of Massive Talent',
+             'eaj3pch0x91f', 'hd', 'action')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('Turning Red', '9iqzenyulola', 'hd', 'action')
+            )
+
 
 connection.commit()
 connection.close()
