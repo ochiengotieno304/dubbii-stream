@@ -9,23 +9,27 @@ with open('schema.sql') as f:
 cur = connection.cursor()
 
 cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
-            ('Black Adam', 's9e5cpyoa252', 'hd', 'action')
+            ('Black Adam', 'fmlqvrhrnbp2', 'hd', 'action')
             )
 
 cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
-            ('Amsterdam', 'wrlfq5ys2gxp', 'hd', 'action')
+            ('Amsterdam', '8ihc90peu82m', 'hd', 'history')
             )
 
 cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
-            ('Jumanji The Next Level', 'qgakd0bxv6ri', 'hd', 'action')
+            ('Bullet Train', 'ix3hrd6u4434', 'hd', 'action')
             )
 
 cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
-            ('Disenchanted', 'hxhvt1ycb8pj', 'hd', 'action')
+            ('Disenchanted', 'drumup3up78i', 'hd', 'fantacy')
             )
 
 cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
-            ('Top Gun Maverick', '3aaqk5emh1s3', 'hd', 'action')
+            ('Elvis', 'pt19bqwe3nl9', 'hd', 'biography')
+            )
+
+cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?)",
+            ('High Heat', 'hsu5viqt2mt2', 'hd', 'action')
             )
 
 
