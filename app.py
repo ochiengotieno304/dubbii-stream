@@ -37,6 +37,26 @@ def get_movie_poster_and_overview(movie_id):
     return [overview, path]
 
 
+def get_movie_rating(movie_id):
+    movie = get_movie(movie_id)
+    title = movie['title']
+    search = tmdb.Search()
+    response = search.movie(query=title)
+    rating = response['results'][0]['vote_average']
+
+    return rating
+
+
+def get_movie_year(movie_id):
+    movie = get_movie(movie_id)
+    title = movie['title']
+    search = tmdb.Search()
+    response = search.movie(query=title)
+    release_date = response['results'][0]['release_date']
+
+    return release_date[0 : 4]
+
+
 def get_movie_backdrop(movie_id):
     movie = get_movie(movie_id)
     title = movie['title']
@@ -75,6 +95,9 @@ def index():
         conn.close()
 
     app.jinja_env.globals.update(movie_data=get_movie_poster_and_overview)
+    app.jinja_env.globals.update(movie_rating=get_movie_rating)
+    app.jinja_env.globals.update(movie_year=get_movie_year)
+
     # app.jinja_env.globals.update(backdrop_image=get_movie_backdrop)
 
     return render_template('index.html', movies=movies)
