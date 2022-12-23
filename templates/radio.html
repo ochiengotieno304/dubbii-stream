@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="font-thin text-2xl text-center text-violet-900 mb-5">
+  {% block title %} Radio Streams {% endblock %}
+</h1>
+
+<section class="px-4 py-20 mx-auto max-w-7xl">
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+    {% for radio in radios %}
+    <div class="mx-auto text-center mb-4">
+
+      <p class="text-gray-800 text-xs capitalize left-0 px-2 mb-2">{{radio['title']}}</p>
+
+      <audio controls>
+        <source src="{{ radio.link }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+
+{% endblock %}

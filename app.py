@@ -54,7 +54,7 @@ def get_movie_year(movie_id):
     response = search.movie(query=title)
     release_date = response['results'][0]['release_date']
 
-    return release_date[0 : 4]
+    return release_date[0: 4]
 
 
 def get_movie_backdrop(movie_id):
@@ -163,3 +163,12 @@ def delete(id):
     conn.close()
     flash('success', f"Movie deleted successfully {movie['title']}")
     return redirect(url_for('index'))
+
+
+@app.route('/radio')
+def radio():
+    conn = get_db_connection()
+    radios = conn.execute('SELECT * FROM radios ORDER BY created DESC').fetchall()
+    conn.close()
+
+    return render_template('radio.html', radios=radios)
