@@ -1,11 +1,13 @@
 import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
+from pyradios import RadioBrowser
 import tmdbsimple as tmdb
 import os
 import asyncio
 
 
+rb = RadioBrowser()
 tmdb.API_KEY = os.environ['api_key']
 
 
@@ -165,10 +167,11 @@ def delete(id):
     return redirect(url_for('index'))
 
 
-@app.route('/radio')
+@app.route('/radio', methods=['GET', 'POST'])
 def radio():
-    conn = get_db_connection()
-    radios = conn.execute('SELECT * FROM radios ORDER BY created DESC').fetchall()
-    conn.close()
+
+    if request.method == 'POST':
+        search = request.form['search']
+        radios = rb.search(name=search, country="Kenya", )
 
     return render_template('radio.html', radios=radios)
