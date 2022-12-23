@@ -16,7 +16,7 @@
   {% if not radios %}
   <p class="text-gray-800 text-sm capitalize left-0 px-2 mb-2">No station match your search</p>
   {% else %}
-  <p class="text-gray-800 text-sm capitalize left-0 px-2 mb-5">Results...</p>
+  <p class="text-gray-800 text-sm capitalize left-0 px-2 mb-5">Available streams</p>
   {% endif %}
 
   <div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
@@ -24,7 +24,7 @@
 
     <div class="mx-auto mb-4 text-center">
       <audio controls>
-        <source src="{{ radio['url'] }}" type="audio/mpeg">
+        <source src="{{ radio['url'] }}" type="audio/{{radio['codec'].lower()}}">
         Your browser does not support the audio element.
       </audio>
       <p class="text-gray-800 text-xs capitalize left-0 px-2 mb-2">{{radio['name']}}</p>

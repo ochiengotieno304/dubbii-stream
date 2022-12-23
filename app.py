@@ -86,7 +86,7 @@ def movie_search(search):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'abc123'
-SSLify(app)
+sslify = SSLify(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
