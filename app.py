@@ -169,9 +169,14 @@ def delete(id):
 
 @app.route('/radio', methods=['GET', 'POST'])
 def radio():
-
     if request.method == 'POST':
         search = request.form['search']
         radios = rb.search(name=search, country="Kenya", )
+    else:
+        conn = get_db_connection()
+        radios = conn.execute(
+            'SELECT * FROM radios ORDER BY created DESC').fetchall()
+        conn.close()
+
 
     return render_template('radio.html', radios=radios)

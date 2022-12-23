@@ -89,25 +89,25 @@ cur.execute("INSERT INTO movies (title, link, quality, genre) VALUES (?, ?, ?, ?
             ('Turning Red', '9iqzenyulola', 'hd', 'action')
             )
 
-cur.execute("INSERT INTO radios (title, link) VALUES (?, ?)",
+cur.execute("INSERT INTO radios (name, url) VALUES (?, ?)",
             ('Homeboyz Radio (KE)', 'http://homeboyzradio-atunwadigital.streamguys1.com/homeboyzradio'))
 
-cur.execute("INSERT INTO radios (title, link) VALUES (?, ?)",
+cur.execute("INSERT INTO radios (name, url) VALUES (?, ?)",
             ('Heart London (UK)', 'http://icecast.thisisdax.com/HeartLondonMP3'))
 
-cur.execute("INSERT INTO radios (title, link) VALUES (?, ?)",
+cur.execute("INSERT INTO radios (name, url) VALUES (?, ?)",
             ('NRG Radio (KE)', 'https://streamingv2.shoutcast.com/nrg-radio-ke'))
 
-cur.execute("INSERT INTO radios (title, link) VALUES (?, ?)",
+cur.execute("INSERT INTO radios (name, url) VALUES (?, ?)",
             ('Classic 105 (KE)', 'https://classic105-atunwadigital.streamguys1.com/classic105'))
 
-cur.execute("INSERT INTO radios (title, link) VALUES (?, ?)",
+cur.execute("INSERT INTO radios (name, url) VALUES (?, ?)",
             ('Ghetto Radio (KE)', 'https://stream.zeno.fm/kvudezx1h2zuv'))
 
-cur.execute("INSERT INTO radios (title, link) VALUES (?, ?)",
+cur.execute("INSERT INTO radios (name, url) VALUES (?, ?)",
             ('Radio Maisha (KE)', 'http://stream.zeno.fm/0nb1sqerqy5tv'))
 
-cur.execute("INSERT INTO radios (title, link) VALUES (?, ?)",
+cur.execute("INSERT INTO radios (name, url) VALUES (?, ?)",
             ('Capital FM (KE)', 'https://atunwadigital.streamguys1.com/capitalfm'))
 
 
