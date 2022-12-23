@@ -2,6 +2,8 @@ import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 from pyradios import RadioBrowser
+from flask_talisman import Talisman
+from flask_sslify import SSLify
 import tmdbsimple as tmdb
 import os
 import asyncio
@@ -83,6 +85,7 @@ def movie_search(search):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'abc123'
+SSLify(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
