@@ -7,6 +7,7 @@ from flask_sslify import SSLify
 import tmdbsimple as tmdb
 import os
 import asyncio
+import pyradios
 
 
 rb = RadioBrowser()
@@ -174,12 +175,9 @@ def delete(id):
 def radio():
     if request.method == 'POST':
         search = request.form['search']
-        radios = rb.search(name=search, country="Kenya", )
+        radios = rb.search(name=search, country="Kenya")
     else:
-        conn = get_db_connection()
-        radios = conn.execute(
-            'SELECT * FROM radios ORDER BY created DESC').fetchall()
-        conn.close()
+        radios = rb.search(country="Kenya")
 
 
     return render_template('radio.html', radios=radios)
